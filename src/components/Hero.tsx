@@ -1,5 +1,5 @@
 
-import { Rocket, Code, Zap, MessageCircle } from "lucide-react";
+import { Rocket, Code, Zap, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -28,19 +28,19 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto animate-fade-in">
+        <div className="max-w-4xl mx-auto">
           {/* Logo/Brand */}
-          <div className="mb-8 flex justify-center items-center space-x-4">
-            <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl">
+          <div className="mb-8 flex justify-center items-center space-x-4 animate-fade-in">
+            <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl animate-float animate-glow">
               <Code className="w-12 h-12 text-white" />
             </div>
-            <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
               GV Software
             </h1>
           </div>
 
           {/* Main Message */}
-          <div className="mb-12 space-y-6">
+          <div className="mb-12 space-y-6 animate-slide-up animation-delay-300">
             <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4">
               Estamos em Desenvolvimento
             </h2>
@@ -52,25 +52,25 @@ const Hero = () => {
 
           {/* Features Preview */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              <Rocket className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-slide-up animation-delay-600">
+              <Rocket className="w-12 h-12 text-blue-400 mx-auto mb-4 animate-float" />
               <h3 className="text-xl font-semibold text-white mb-2">Inovação</h3>
               <p className="text-gray-300">Tecnologias de ponta para soluções modernas</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              <Zap className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-slide-up animation-delay-900">
+              <Zap className="w-12 h-12 text-purple-400 mx-auto mb-4 animate-float animation-delay-300" />
               <h3 className="text-xl font-semibold text-white mb-2">Performance</h3>
               <p className="text-gray-300">Sistemas rápidos e eficientes</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              <Code className="w-12 h-12 text-pink-400 mx-auto mb-4" />
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-slide-up animation-delay-1000">
+              <Code className="w-12 h-12 text-pink-400 mx-auto mb-4 animate-float animation-delay-600" />
               <h3 className="text-xl font-semibold text-white mb-2">Qualidade</h3>
               <p className="text-gray-300">Código limpo e bem estruturado</p>
             </div>
           </div>
 
           {/* Quote Request Section */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto border border-white/20 mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto border border-white/20 mb-8 animate-slide-up animation-delay-1000 hover:bg-white/15 transition-all duration-300">
             <h3 className="text-2xl font-semibold text-white mb-4">
               Solicite seu Orçamento!
             </h3>
@@ -79,9 +79,9 @@ const Hero = () => {
             </p>
             <Button
               onClick={handleQuoteRequest}
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center gap-2 animate-glow"
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5 animate-bounce" />
               Solicitar Orçamento
             </Button>
           </div>
@@ -90,18 +90,21 @@ const Hero = () => {
           <div className="mb-8">
             <Button
               onClick={handleInstagramClick}
-              variant="outline"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20 transition-all duration-300"
+              className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-110 animate-instagram-pulse shadow-lg hover:shadow-xl group"
             >
-              Siga-nos no Instagram
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="relative flex items-center gap-3">
+                <Instagram className="w-5 h-5 animate-bounce" />
+                🔥 Siga-nos no Instagram 🔥
+              </span>
             </Button>
           </div>
 
           {/* Progress Indicator */}
-          <div className="mt-12 text-center">
+          <div className="mt-12 text-center animate-slide-up animation-delay-2000">
             <p className="text-gray-400 mb-4">Progresso do desenvolvimento</p>
             <div className="max-w-xs mx-auto bg-gray-800 rounded-full h-3 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full animate-pulse" style={{width: '75%'}}></div>
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full animate-pulse animate-glow" style={{width: '75%'}}></div>
             </div>
             <p className="text-sm text-gray-400 mt-2">75% concluído</p>
           </div>
@@ -109,14 +112,20 @@ const Hero = () => {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-20 animate-bounce">
-        <div className="w-4 h-4 bg-blue-400 rounded-full opacity-60"></div>
+      <div className="absolute top-20 left-20 animate-float">
+        <div className="w-4 h-4 bg-blue-400 rounded-full opacity-60 animate-glow"></div>
       </div>
-      <div className="absolute bottom-20 right-20 animate-bounce animation-delay-1000">
-        <div className="w-6 h-6 bg-purple-400 rounded-full opacity-60"></div>
+      <div className="absolute bottom-20 right-20 animate-float animation-delay-1000">
+        <div className="w-6 h-6 bg-purple-400 rounded-full opacity-60 animate-glow"></div>
       </div>
-      <div className="absolute top-1/2 right-10 animate-bounce animation-delay-2000">
-        <div className="w-3 h-3 bg-pink-400 rounded-full opacity-60"></div>
+      <div className="absolute top-1/2 right-10 animate-float animation-delay-2000">
+        <div className="w-3 h-3 bg-pink-400 rounded-full opacity-60 animate-glow"></div>
+      </div>
+      <div className="absolute top-1/3 left-10 animate-float animation-delay-600">
+        <div className="w-2 h-2 bg-yellow-400 rounded-full opacity-50 animate-glow"></div>
+      </div>
+      <div className="absolute bottom-1/3 left-1/3 animate-float animation-delay-900">
+        <div className="w-5 h-5 bg-cyan-400 rounded-full opacity-40 animate-glow"></div>
       </div>
     </div>
   );
