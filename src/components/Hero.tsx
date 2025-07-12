@@ -90,13 +90,17 @@ const Hero = () => {
           <div className="mb-8">
             <Button
               onClick={handleInstagramClick}
-              className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-110 animate-instagram-pulse shadow-lg hover:shadow-xl group"
+              className="relative overflow-hidden bg-gradient-to-br from-purple-600 via-pink-500 via-red-500 to-yellow-500 text-white font-bold px-10 py-5 rounded-2xl transition-all duration-500 transform hover:scale-110 animate-instagram-pulse shadow-2xl hover:shadow-purple-500/50 group border-2 border-white/20"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              <span className="relative flex items-center gap-3">
-                <Instagram className="w-5 h-5 animate-bounce" />
-                🔥 Siga-nos no Instagram 🔥
+              <span className="absolute inset-0 bg-gradient-to-br from-indigo-400 via-purple-400 via-pink-400 to-red-400 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-gradient bg-[length:300%_300%]"></span>
+              <span className="relative flex items-center gap-4 text-lg">
+                <div className="relative">
+                  <Instagram className="w-7 h-7 animate-bounce drop-shadow-lg" />
+                  <div className="absolute -inset-1 bg-white/30 rounded-full animate-ping"></div>
+                </div>
+                <span className="animate-pulse">✨ Siga-nos no Instagram ✨</span>
               </span>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             </Button>
           </div>
 
