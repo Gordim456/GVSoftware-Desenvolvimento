@@ -22,9 +22,14 @@ const Footer = () => {
               href="https://www.instagram.com/gv_software/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors duration-300"
+              className="relative group p-4 bg-gradient-to-br from-purple-600 via-pink-500 via-red-500 to-yellow-500 rounded-2xl transition-all duration-500 hover:scale-110 animate-instagram-pulse shadow-xl hover:shadow-purple-500/50 border-2 border-white/20 overflow-hidden"
             >
-              <Instagram className="w-6 h-6" />
+              <span className="absolute inset-0 bg-gradient-to-br from-indigo-400 via-purple-400 via-pink-400 to-red-400 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-gradient bg-[length:300%_300%]"></span>
+              <div className="relative">
+                <Instagram className="w-7 h-7 text-white animate-bounce drop-shadow-lg" />
+                <div className="absolute -inset-1 bg-white/30 rounded-full animate-ping"></div>
+              </div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             </a>
           </div>
 
