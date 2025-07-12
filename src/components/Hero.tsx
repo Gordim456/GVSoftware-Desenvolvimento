@@ -1,23 +1,21 @@
 
-import { Rocket, Code, Zap } from "lucide-react";
+import { Rocket, Code, Zap, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 const Hero = () => {
-  const [email, setEmail] = useState("");
   const { toast } = useToast();
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: "Email cadastrado!",
-        description: "Você será notificado quando o site estiver pronto.",
-      });
-      setEmail("");
-    }
+  const handleQuoteRequest = () => {
+    const whatsappNumber = "5517997853416";
+    const message = "Olá! Gostaria de solicitar um orçamento para desenvolvimento de software.";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleInstagramClick = () => {
+    window.open('https://www.instagram.com/gv_software/', '_blank');
   };
 
   return (
@@ -71,30 +69,32 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Email Signup */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto border border-white/20">
+          {/* Quote Request Section */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto border border-white/20 mb-8">
             <h3 className="text-2xl font-semibold text-white mb-4">
-              Seja o primeiro a saber!
+              Solicite seu Orçamento!
             </h3>
             <p className="text-gray-300 mb-6">
-              Cadastre seu email e receba novidades sobre nossos produtos
+              Precisa de uma solução em software? Entre em contato conosco via WhatsApp
             </p>
-            <form onSubmit={handleEmailSubmit} className="space-y-4">
-              <Input
-                type="email"
-                placeholder="seu@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
-                required
-              />
-              <Button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
-              >
-                Notificar-me
-              </Button>
-            </form>
+            <Button
+              onClick={handleQuoteRequest}
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Solicitar Orçamento
+            </Button>
+          </div>
+
+          {/* Instagram Link */}
+          <div className="mb-8">
+            <Button
+              onClick={handleInstagramClick}
+              variant="outline"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 transition-all duration-300"
+            >
+              Siga-nos no Instagram
+            </Button>
           </div>
 
           {/* Progress Indicator */}

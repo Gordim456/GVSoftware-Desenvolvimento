@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -17,34 +17,14 @@ const Footer = () => {
             Desenvolvendo o futuro com tecnologia e inovação
           </p>
 
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center">
             <a 
-              href="https://github.com/Gvsoftware2025" 
+              href="https://www.instagram.com/gv_software/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors duration-300"
             >
-              <Github className="w-6 h-6" />
-            </a>
-            <a 
-              href="mailto:contato@gvsoftware.com.br" 
-              className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors duration-300"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
-            <a 
-              href="https://linkedin.com/company/gvsoftware" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors duration-300"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a 
-              href="tel:+5511999999999" 
-              className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors duration-300"
-            >
-              <Phone className="w-6 h-6" />
+              <Instagram className="w-6 h-6" />
             </a>
           </div>
 
