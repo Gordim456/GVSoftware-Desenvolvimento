@@ -108,9 +108,9 @@ const Hero = () => {
           <div className="mt-12 text-center animate-slide-up animation-delay-2000">
             <p className="text-gray-400 mb-4">Progresso do desenvolvimento</p>
             <div className="max-w-xs mx-auto bg-gray-800 rounded-full h-3 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full animate-pulse animate-glow" style={{width: '75%'}}></div>
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full animate-pulse animate-glow" style={{width: '88%'}}></div>
             </div>
-            <p className="text-sm text-gray-400 mt-2">75% concluído</p>
+            <p className="text-sm text-gray-400 mt-2">88% concluído</p>
           </div>
         </div>
       </div>
