@@ -1,6 +1,8 @@
 
-import { Rocket, Code, Zap, MessageCircle, Instagram } from "lucide-react";
+import { Rocket, Code, Zap, MessageCircle, Instagram, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useProgress } from "@/contexts/ProgressContext";
@@ -10,6 +12,8 @@ const Hero = () => {
   const { toast } = useToast();
   const { progress } = useProgress();
   const navigate = useNavigate();
+  const [showPasswordDialog, setShowPasswordDialog] = useState(false);
+  const [password, setPassword] = useState("");
 
   // Atalho escondido: Ctrl+Shift+A
   useEffect(() => {
@@ -39,6 +43,37 @@ const Hero = () => {
     window.open('https://www.instagram.com/gv_software/', '_blank');
   };
 
+  // Duplo clique na logo para acessar admin
+  const handleLogoDoubleClick = () => {
+    setShowPasswordDialog(true);
+  };
+
+  // Validar senha e acessar admin
+  const handlePasswordSubmit = () => {
+    if (password === "gvadmin2024") {
+      setShowPasswordDialog(false);
+      setPassword("");
+      navigate('/admin');
+      toast({
+        title: "Acesso Autorizado",
+        description: "Bem-vindo ao painel administrativo!",
+      });
+    } else {
+      toast({
+        title: "Senha Incorreta",
+        description: "Tente novamente.",
+        variant: "destructive",
+      });
+      setPassword("");
+    }
+  };
+
+  const handlePasswordKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handlePasswordSubmit();
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
       {/* Background Animation */}
@@ -52,7 +87,11 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Logo/Brand */}
           <div className="mb-8 flex justify-center items-center space-x-4 animate-fade-in">
-            <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl animate-float animate-glow">
+            <div 
+              className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl animate-float animate-glow cursor-pointer hover:scale-105 transition-transform duration-200" 
+              onDoubleClick={handleLogoDoubleClick}
+              title="Duplo clique para acesso especial"
+            >
               <Code className="w-12 h-12 text-white" />
             </div>
             <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
@@ -135,6 +174,53 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Password Dialog */}
+      <Dialog open={showPasswordDialog} onOpenChange={setShowPasswordDialog}>
+        <DialogContent className="bg-slate-900/95 backdrop-blur-sm border-purple-500/30 text-white">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-purple-400">
+              <Lock className="w-5 h-5" />
+              Acesso Restrito
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-4 py-4">
+            <p className="text-gray-300 text-sm">
+              Digite a senha para acessar o painel administrativo:
+            </p>
+            
+            <Input
+              type="password"
+              placeholder="Digite a senha..."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyPress={handlePasswordKeyPress}
+              className="bg-white/10 border-purple-500/30 text-white placeholder:text-gray-400 focus:border-purple-400"
+              autoFocus
+            />
+            
+            <div className="flex gap-2 justify-end">
+              <Button 
+                variant="outline" 
+                onClick={() => {
+                  setShowPasswordDialog(false);
+                  setPassword("");
+                }}
+                className="border-gray-600 text-gray-300 hover:bg-gray-800"
+              >
+                Cancelar
+              </Button>
+              <Button 
+                onClick={handlePasswordSubmit}
+                className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
+              >
+                Entrar
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Floating Elements */}
       <div className="absolute top-20 left-20 animate-float">
