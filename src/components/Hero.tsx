@@ -1,11 +1,32 @@
 
 import { Rocket, Code, Zap, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useProgress } from "@/contexts/ProgressContext";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const { toast } = useToast();
+  const { progress } = useProgress();
+  const navigate = useNavigate();
+
+  // Atalho escondido: Ctrl+Shift+A
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.shiftKey && event.key === 'A') {
+        event.preventDefault();
+        navigate('/admin');
+        toast({
+          title: "Acesso Admin",
+          description: "Redirecionando para o painel administrativo...",
+        });
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [navigate, toast]);
 
   const handleQuoteRequest = () => {
     const whatsappNumber = "5517997853416";
@@ -108,9 +129,9 @@ const Hero = () => {
           <div className="mt-12 text-center animate-slide-up animation-delay-2000">
             <p className="text-gray-400 mb-4">Progresso do desenvolvimento</p>
             <div className="max-w-xs mx-auto bg-gray-800 rounded-full h-3 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full animate-pulse animate-glow" style={{width: '88%'}}></div>
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full animate-pulse animate-glow" style={{width: `${progress}%`}}></div>
             </div>
-            <p className="text-sm text-gray-400 mt-2">88% concluído</p>
+            <p className="text-sm text-gray-400 mt-2">{progress}% concluído</p>
           </div>
         </div>
       </div>
