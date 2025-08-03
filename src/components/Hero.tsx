@@ -1,5 +1,6 @@
 
 import { Rocket, Code, Zap, MessageCircle, Instagram, Lock } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -165,12 +166,67 @@ const Hero = () => {
           </div>
 
           {/* Progress Indicator */}
-          <div className="mt-12 text-center animate-slide-up animation-delay-2000">
-            <p className="text-gray-400 mb-4">Progresso do desenvolvimento</p>
-            <div className="max-w-xs mx-auto bg-gray-800 rounded-full h-3 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full animate-pulse animate-glow" style={{width: `${progress}%`}}></div>
+          <div className="mt-12 max-w-lg mx-auto animate-slide-up animation-delay-2000">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center gap-3">
+                  <Code className="w-6 h-6 text-blue-400 animate-pulse" />
+                  Progresso do Desenvolvimento
+                  <Zap className="w-6 h-6 text-purple-400 animate-pulse animation-delay-300" />
+                </h3>
+                <p className="text-gray-300">Nossa jornada de inovação em tempo real</p>
+              </div>
+
+              <div className="space-y-4">
+                {/* Counter animado */}
+                <div className="text-center">
+                  <div className="inline-flex items-baseline gap-1">
+                    <span className="text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%] tabular-nums">
+                      {progress}
+                    </span>
+                    <span className="text-3xl font-semibold text-purple-400 animate-pulse">%</span>
+                  </div>
+                  <p className="text-sm text-gray-400 mt-1 animate-fade-in">concluído</p>
+                </div>
+
+                {/* Barra de progresso moderna */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-sm"></div>
+                  <Progress 
+                    value={progress} 
+                    className="h-4 relative z-10 bg-slate-800/50 border border-white/10"
+                  />
+                  <div 
+                    className="absolute top-0 left-0 h-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transition-all duration-1000 ease-out animate-glow"
+                    style={{width: `${progress}%`}}
+                  ></div>
+                  
+                  {/* Partículas flutuantes */}
+                  <div className="absolute top-1/2 transform -translate-y-1/2 animate-float" style={{left: `${Math.min(progress, 95)}%`}}>
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse shadow-lg shadow-white/50"></div>
+                  </div>
+                </div>
+
+                {/* Milestones */}
+                <div className="flex justify-between text-xs text-gray-500 mt-2">
+                  <span className={progress >= 25 ? "text-blue-400 font-semibold" : ""}>25%</span>
+                  <span className={progress >= 50 ? "text-purple-400 font-semibold" : ""}>50%</span>
+                  <span className={progress >= 75 ? "text-pink-400 font-semibold" : ""}>75%</span>
+                  <span className={progress >= 100 ? "text-green-400 font-semibold animate-bounce" : ""}>100%</span>
+                </div>
+
+                {/* Status message */}
+                <div className="text-center pt-2">
+                  <p className="text-sm text-gray-400 animate-pulse">
+                    {progress < 30 && "🚀 Iniciando a jornada..."}
+                    {progress >= 30 && progress < 60 && "⚡ Desenvolvimento acelerado!"}
+                    {progress >= 60 && progress < 90 && "🔥 Quase lá! Últimos ajustes..."}
+                    {progress >= 90 && progress < 100 && "✨ Finalizando os detalhes..."}
+                    {progress >= 100 && "🎉 Projeto concluído!"}
+                  </p>
+                </div>
+              </div>
             </div>
-            <p className="text-sm text-gray-400 mt-2">{progress}% concluído</p>
           </div>
         </div>
       </div>
