@@ -204,36 +204,39 @@ const Hero = () => {
                       className="relative h-full rounded-xl transition-all duration-1000 ease-out shadow-lg overflow-hidden"
                       style={{width: `${progress}%`}}
                     >
-                      {/* Gradiente base animado */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 via-purple-500 via-pink-500 to-red-400 rounded-xl"></div>
+                      {/* Gradiente base roxo e azul */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-600 via-purple-600 to-slate-900 rounded-xl"></div>
                       
-                      {/* Gradiente em movimento */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-400 via-yellow-400 via-green-400 via-cyan-400 via-blue-500 via-purple-500 via-pink-500 to-red-400 rounded-xl animate-gradient bg-[length:300%_100%] opacity-80"></div>
+                      {/* Efeito de loading animado */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-500 via-purple-500 to-slate-900 rounded-xl animate-gradient bg-[length:300%_100%] opacity-90"></div>
+                      
+                      {/* Flow de carregamento */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 via-purple-400 to-transparent rounded-xl animate-gradient bg-[length:200%_100%] opacity-70"></div>
                       
                       {/* Reflexo superior */}
                       <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-b from-white/30 to-transparent rounded-t-xl"></div>
                       
-                      {/* Brilho animado */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent transform -skew-x-12 animate-pulse rounded-xl"></div>
+                      {/* Shimmer de loading */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 translate-x-[-100%] animate-[shimmer_2s_infinite] rounded-xl"></div>
                       
-                      {/* Ondas animadas */}
-                      <div className="absolute inset-0 opacity-60">
-                        <div className="h-full w-full bg-gradient-to-r from-cyan-300/50 via-blue-400/50 via-purple-400/50 via-pink-400/50 to-red-300/50 rounded-xl animate-pulse"></div>
+                      {/* Pulso de energia */}
+                      <div className="absolute inset-0 opacity-80">
+                        <div className="h-full w-full bg-gradient-to-r from-slate-800/60 via-blue-400/60 via-purple-400/60 to-slate-800/60 rounded-xl animate-pulse"></div>
                       </div>
                       
-                      {/* Efeito de movimento */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-2000 rounded-xl"></div>
+                      {/* Efeito de movimento contínuo */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300/40 via-purple-300/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-2000 rounded-xl"></div>
                     </div>
                     
                     {/* Partículas flutuantes múltiplas */}
                     <div className="absolute top-1/2 transform -translate-y-1/2 animate-float" style={{left: `${Math.min(progress * 0.3, 95)}%`}}>
-                      <div className="w-1 h-1 bg-cyan-300 rounded-full animate-ping shadow-lg shadow-cyan-300/50"></div>
+                      <div className="w-1 h-1 bg-blue-300 rounded-full animate-ping shadow-lg shadow-blue-300/50"></div>
                     </div>
                     <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-300" style={{left: `${Math.min(progress * 0.6, 95)}%`}}>
                       <div className="w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse shadow-lg shadow-purple-300/50"></div>
                     </div>
                     <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-600" style={{left: `${Math.min(progress * 0.9, 95)}%`}}>
-                      <div className="w-1.5 h-1.5 bg-pink-300 rounded-full animate-bounce shadow-lg shadow-pink-300/50"></div>
+                      <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce shadow-lg shadow-slate-300/50"></div>
                     </div>
                     
                     {/* Indicador de progresso flutuante */}
