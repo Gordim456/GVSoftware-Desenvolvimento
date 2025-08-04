@@ -189,22 +189,60 @@ const Hero = () => {
                   <p className="text-sm text-gray-400 mt-1 animate-fade-in">concluído</p>
                 </div>
 
-                {/* Barra de progresso moderna */}
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-sm"></div>
-                  <Progress 
-                    value={progress} 
-                    className="h-4 relative z-10 bg-slate-800/50 border border-white/10"
-                  />
-                  <div 
-                    className="absolute top-0 left-0 h-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transition-all duration-1000 ease-out animate-glow"
-                    style={{width: `${progress}%`}}
-                  ></div>
+                {/* Barra de progresso ultra moderna */}
+                <div className="relative group">
+                  {/* Fundo com efeito de profundidade */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-900/80 rounded-2xl backdrop-blur-sm border border-white/10"></div>
                   
-                  {/* Partículas flutuantes */}
-                  <div className="absolute top-1/2 transform -translate-y-1/2 animate-float" style={{left: `${Math.min(progress, 95)}%`}}>
-                    <div className="w-2 h-2 bg-white rounded-full animate-pulse shadow-lg shadow-white/50"></div>
+                  {/* Trilha da barra */}
+                  <div className="relative h-8 bg-gradient-to-r from-slate-800/90 via-slate-700/70 to-slate-800/90 rounded-2xl overflow-hidden border border-white/20 shadow-inner">
+                    {/* Reflexo interno */}
+                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                    
+                    {/* Barra de progresso principal */}
+                    <div 
+                      className="relative h-full bg-gradient-to-r from-cyan-400 via-blue-500 via-purple-500 via-pink-500 to-red-400 rounded-2xl transition-all duration-1000 ease-out shadow-lg"
+                      style={{width: `${progress}%`}}
+                    >
+                      {/* Reflexo superior */}
+                      <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-b from-white/30 to-transparent rounded-t-2xl"></div>
+                      
+                      {/* Brilho animado */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent transform -skew-x-12 animate-pulse rounded-2xl"></div>
+                      
+                      {/* Ondas animadas */}
+                      <div className="absolute inset-0 opacity-60">
+                        <div className="h-full w-full bg-gradient-to-r from-cyan-300/50 via-blue-400/50 via-purple-400/50 via-pink-400/50 to-red-300/50 rounded-2xl animate-pulse"></div>
+                      </div>
+                      
+                      {/* Efeito de movimento */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-2000 rounded-2xl"></div>
+                    </div>
+                    
+                    {/* Partículas flutuantes múltiplas */}
+                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float" style={{left: `${Math.min(progress * 0.3, 95)}%`}}>
+                      <div className="w-1 h-1 bg-cyan-300 rounded-full animate-ping shadow-lg shadow-cyan-300/50"></div>
+                    </div>
+                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-300" style={{left: `${Math.min(progress * 0.6, 95)}%`}}>
+                      <div className="w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse shadow-lg shadow-purple-300/50"></div>
+                    </div>
+                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-600" style={{left: `${Math.min(progress * 0.9, 95)}%`}}>
+                      <div className="w-2 h-2 bg-pink-300 rounded-full animate-bounce shadow-lg shadow-pink-300/50"></div>
+                    </div>
+                    
+                    {/* Indicador de progresso flutuante */}
+                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-1000" style={{left: `${Math.min(progress, 95)}%`}}>
+                      <div className="relative">
+                        <div className="w-3 h-3 bg-white rounded-full shadow-2xl shadow-white/50 animate-pulse border-2 border-white/50"></div>
+                        <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-cyan-200 to-pink-200 rounded-full animate-spin opacity-80"></div>
+                        <div className="absolute -inset-1 bg-white/20 rounded-full animate-ping"></div>
+                      </div>
+                    </div>
                   </div>
+                  
+                  {/* Efeitos de luz ambiente */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-xl opacity-70 animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-md animate-glow"></div>
                 </div>
 
                 {/* Milestones */}
