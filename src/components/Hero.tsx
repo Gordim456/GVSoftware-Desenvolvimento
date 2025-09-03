@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useProgress } from "@/contexts/ProgressContext";
 import { useNavigate } from "react-router-dom";
-import Celebration from "./Celebration";
+
 
 const Hero = () => {
   const { toast } = useToast();
@@ -458,9 +458,6 @@ const Hero = () => {
       <div className="absolute bottom-1/3 left-1/3 animate-float animation-delay-900">
         <div className="w-5 h-5 bg-cyan-400 rounded-full opacity-40 animate-glow"></div>
       </div>
-
-      {/* Celebração ao concluir */}
-      <Celebration active={progress >= 100} />
     </div>
   );
 };
