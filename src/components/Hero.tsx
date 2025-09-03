@@ -171,116 +171,84 @@ const Hero = () => {
             </>
           )}
 
-          {/* Site Pronto */}
+          {/* Site Concluído */}
           {progress >= 100 ? (
             <div className="mt-12 max-w-4xl mx-auto animate-fade-in">
               {/* Mensagem Principal */}
-              <div className="text-center mb-12 space-y-8">
-                {/* Ícone de Sucesso */}
-                <div className="relative mx-auto mb-8">
-                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 rounded-full flex items-center justify-center animate-scale-in shadow-2xl shadow-green-500/30">
-                    <div className="w-28 h-28 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center animate-pulse">
-                      <svg className="w-16 h-16 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
+              <div className="text-center mb-16 space-y-8">
+                {/* Ícone de Check */}
+                <div className="mx-auto mb-8">
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center animate-scale-in shadow-lg shadow-green-500/30">
+                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"></path>
+                    </svg>
                   </div>
-                  {/* Anel de luz */}
-                  <div className="absolute -inset-8 bg-gradient-to-r from-green-500/20 via-blue-500/20 to-purple-500/20 rounded-full blur-2xl animate-pulse"></div>
-                  {/* Partículas ao redor */}
-                  <div className="absolute top-4 left-4 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-                  <div className="absolute top-8 right-6 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping animation-delay-300"></div>
-                  <div className="absolute bottom-6 left-8 w-1 h-1 bg-purple-400 rounded-full animate-ping animation-delay-600"></div>
-                  <div className="absolute bottom-4 right-4 w-2 h-2 bg-pink-400 rounded-full animate-ping animation-delay-900"></div>
                 </div>
 
-                {/* Título */}
-                <h2 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-green-400 via-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient bg-[length:300%_300%] mb-6">
-                  SITE PRONTO!
+                {/* Título Principal */}
+                <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-6">
+                  Site Concluído!
                 </h2>
 
-                {/* Subtítulo */}
-                <div className="space-y-4">
-                  <h3 className="text-2xl md:text-4xl font-bold text-white animate-fade-in animation-delay-500">
-                    🚀 Logo Logo Está no Ar
-                  </h3>
-                  <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in animation-delay-700">
-                    Nosso site está finalizado e será lançado em breve. Aguarde que em poucos dias estará tudo funcionando perfeitamente!
+                {/* Descrição */}
+                <div className="space-y-6">
+                  <p className="text-xl md:text-2xl text-white font-semibold">
+                    🎉 Nosso site está finalizado e pronto para uso
+                  </p>
+                  <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    Tudo foi desenvolvido com sucesso. O site da GV Software está operacional e funcionando perfeitamente. Obrigado pela paciência durante o desenvolvimento!
                   </p>
                 </div>
               </div>
 
-              {/* Cards de Status */}
+              {/* Status Cards */}
               <div className="grid md:grid-cols-3 gap-6 mb-12">
-                <div className="bg-gradient-to-br from-green-500/20 via-green-600/10 to-emerald-700/20 backdrop-blur-sm rounded-2xl p-8 border border-green-400/30 hover:border-green-300/50 transition-all duration-500 hover:scale-105 animate-slide-up animation-delay-1000">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-float shadow-lg shadow-green-500/30">
-                      <Rocket className="w-8 h-8 text-white" />
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-2">Site Finalizado</h4>
-                    <p className="text-green-200 text-sm">Tudo pronto para o lançamento</p>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-green-400/30 text-center hover:scale-105 transition-all duration-300">
+                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Rocket className="w-6 h-6 text-white" />
                   </div>
+                  <h4 className="text-lg font-bold text-white mb-2">✅ Desenvolvimento</h4>
+                  <p className="text-green-200 text-sm">100% Concluído</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-500/20 via-blue-600/10 to-cyan-700/20 backdrop-blur-sm rounded-2xl p-8 border border-blue-400/30 hover:border-blue-300/50 transition-all duration-500 hover:scale-105 animate-slide-up animation-delay-1200">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-float animation-delay-300 shadow-lg shadow-blue-500/30">
-                      <Zap className="w-8 h-8 text-white" />
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-2">Testes Concluídos</h4>
-                    <p className="text-blue-200 text-sm">Tudo funcionando perfeitamente</p>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-blue-400/30 text-center hover:scale-105 transition-all duration-300">
+                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-6 h-6 text-white" />
                   </div>
+                  <h4 className="text-lg font-bold text-white mb-2">✅ Testes</h4>
+                  <p className="text-blue-200 text-sm">Aprovado</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-500/20 via-purple-600/10 to-violet-700/20 backdrop-blur-sm rounded-2xl p-8 border border-purple-400/30 hover:border-purple-300/50 transition-all duration-500 hover:scale-105 animate-slide-up animation-delay-1400">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-float animation-delay-600 shadow-lg shadow-purple-500/30">
-                      <Code className="w-8 h-8 text-white" />
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-2">Deploy em Breve</h4>
-                    <p className="text-purple-200 text-sm">Últimos ajustes sendo feitos</p>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-purple-400/30 text-center hover:scale-105 transition-all duration-300">
+                  <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Code className="w-6 h-6 text-white" />
                   </div>
+                  <h4 className="text-lg font-bold text-white mb-2">✅ Deploy</h4>
+                  <p className="text-purple-200 text-sm">Online</p>
                 </div>
               </div>
 
               {/* Mensagem Final */}
-              <div className="bg-gradient-to-br from-slate-900/80 via-purple-900/40 to-slate-900/80 backdrop-blur-sm rounded-3xl p-10 border border-purple-400/20 shadow-2xl shadow-purple-500/20 animate-fade-in animation-delay-1600">
-                <div className="text-center space-y-6">
-                  <h3 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3">
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    Aguarde o Lançamento
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse animation-delay-500"></div>
-                  </h3>
-                  
-                  <div className="space-y-4">
-                    <p className="text-xl text-gray-300">
-                      🌟 Logo logo nosso site estará funcionando normalmente
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-                      <span className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                        Site pronto
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-200"></div>
-                        Testes ok
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse animation-delay-400"></div>
-                        Lançamento em breve
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Mensagem de Expectativa */}
-                  <div className="mt-8 p-6 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl border border-white/10">
-                    <p className="text-lg text-white font-medium">
-                      ✨ Obrigado pela paciência! Já está quase tudo pronto
-                    </p>
-                    <p className="text-gray-300 mt-2">
-                      Em poucos dias anunciaremos o lançamento oficial
-                    </p>
-                  </div>
+              <div className="bg-gradient-to-br from-green-500/10 via-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  🚀 Site da GV Software Operacional
+                </h3>
+                <p className="text-lg text-gray-300 mb-6">
+                  Nosso site está funcionando normalmente. Você já pode navegar e utilizar todos os recursos disponíveis!
+                </p>
+                <div className="flex justify-center gap-4 text-sm text-gray-400">
+                  <span className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    Sistema Online
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    Totalmente Funcional
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    Pronto para Uso
+                  </span>
                 </div>
               </div>
             </div>
