@@ -166,116 +166,232 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Progress Indicator */}
-          <div className="mt-12 max-w-lg mx-auto animate-slide-up animation-delay-2000">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center gap-3">
-                  <Code className="w-6 h-6 text-blue-400 animate-pulse" />
-                  Progresso do Desenvolvimento
-                  <Zap className="w-6 h-6 text-purple-400 animate-pulse animation-delay-300" />
-                </h3>
-                <p className="text-gray-300">Nossa jornada de inovação em tempo real</p>
-              </div>
-
-              <div className="space-y-4">
-                {/* Counter animado */}
-                <div className="text-center">
-                  <div className="inline-flex items-baseline gap-1">
-                    <span className="text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%] tabular-nums">
-                      {progress}
-                    </span>
-                    <span className="text-3xl font-semibold text-purple-400 animate-pulse">%</span>
-                  </div>
-                  <p className="text-sm text-gray-400 mt-1 animate-fade-in">concluído</p>
-                </div>
-
-                {/* Barra de progresso ultra moderna */}
-                <div className="relative group">
-                  {/* Fundo com efeito de profundidade */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-900/80 rounded-xl backdrop-blur-sm border border-white/10"></div>
-                  
-                  {/* Trilha da barra */}
-                  <div className="relative h-6 bg-gradient-to-r from-slate-800/90 via-slate-700/70 to-slate-800/90 rounded-xl overflow-hidden border border-white/20 shadow-inner">
-                    {/* Reflexo interno */}
-                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                    
-                    {/* Barra de progresso principal */}
-                    <div 
-                      className="relative h-full rounded-xl transition-all duration-1000 ease-out shadow-lg overflow-hidden"
-                      style={{width: `${progress}%`}}
-                    >
-                      {/* Gradiente base roxo e azul */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-600 via-purple-600 to-slate-900 rounded-xl"></div>
-                      
-                      {/* Efeito de loading animado */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-500 via-purple-500 to-slate-900 rounded-xl animate-gradient bg-[length:300%_100%] opacity-90"></div>
-                      
-                      {/* Flow de carregamento */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 via-purple-400 to-transparent rounded-xl animate-gradient bg-[length:200%_100%] opacity-70"></div>
-                      
-                      {/* Reflexo superior */}
-                      <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-b from-white/30 to-transparent rounded-t-xl"></div>
-                      
-                      {/* Shimmer de loading */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 translate-x-[-100%] animate-[shimmer_2s_infinite] rounded-xl"></div>
-                      
-                      {/* Pulso de energia */}
-                      <div className="absolute inset-0 opacity-80">
-                        <div className="h-full w-full bg-gradient-to-r from-slate-800/60 via-blue-400/60 via-purple-400/60 to-slate-800/60 rounded-xl animate-pulse"></div>
-                      </div>
-                      
-                      {/* Efeito de movimento contínuo */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300/40 via-purple-300/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-2000 rounded-xl"></div>
-                    </div>
-                    
-                    {/* Partículas flutuantes múltiplas */}
-                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float" style={{left: `${Math.min(progress * 0.3, 95)}%`}}>
-                      <div className="w-1 h-1 bg-blue-300 rounded-full animate-ping shadow-lg shadow-blue-300/50"></div>
-                    </div>
-                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-300" style={{left: `${Math.min(progress * 0.6, 95)}%`}}>
-                      <div className="w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse shadow-lg shadow-purple-300/50"></div>
-                    </div>
-                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-600" style={{left: `${Math.min(progress * 0.9, 95)}%`}}>
-                      <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce shadow-lg shadow-slate-300/50"></div>
-                    </div>
-                    
-                    {/* Indicador de progresso flutuante */}
-                    <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-1000" style={{left: `${Math.min(progress, 95)}%`}}>
-                      <div className="relative">
-                        <div className="w-2.5 h-2.5 bg-white rounded-full shadow-2xl shadow-white/50 animate-pulse border-2 border-white/50"></div>
-                        <div className="absolute inset-0 w-2.5 h-2.5 bg-gradient-to-r from-cyan-200 to-pink-200 rounded-full animate-spin opacity-80"></div>
-                        <div className="absolute -inset-1 bg-white/20 rounded-full animate-ping"></div>
-                      </div>
+          {/* Progress Indicator / Completion Screen */}
+          {progress >= 100 ? (
+            /* Tela de Conclusão Moderna */
+            <div className="mt-12 max-w-4xl mx-auto animate-fade-in">
+              {/* Mensagem Principal de Conclusão */}
+              <div className="text-center mb-12 space-y-8">
+                {/* Ícone de Sucesso */}
+                <div className="relative mx-auto mb-8">
+                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 rounded-full flex items-center justify-center animate-scale-in shadow-2xl shadow-green-500/30">
+                    <div className="w-28 h-28 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center animate-pulse">
+                      <svg className="w-16 h-16 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"></path>
+                      </svg>
                     </div>
                   </div>
-                  
-                  {/* Efeitos de luz ambiente */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl blur-xl opacity-70 animate-pulse"></div>
-                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-xl blur-md animate-glow"></div>
+                  {/* Anel de luz */}
+                  <div className="absolute -inset-8 bg-gradient-to-r from-green-500/20 via-blue-500/20 to-purple-500/20 rounded-full blur-2xl animate-pulse"></div>
+                  {/* Partículas ao redor */}
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+                  <div className="absolute top-8 right-6 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping animation-delay-300"></div>
+                  <div className="absolute bottom-6 left-8 w-1 h-1 bg-purple-400 rounded-full animate-ping animation-delay-600"></div>
+                  <div className="absolute bottom-4 right-4 w-2 h-2 bg-pink-400 rounded-full animate-ping animation-delay-900"></div>
                 </div>
 
-                {/* Milestones */}
-                <div className="flex justify-between text-xs text-gray-500 mt-2">
-                  <span className={progress >= 25 ? "text-blue-400 font-semibold" : ""}>25%</span>
-                  <span className={progress >= 50 ? "text-purple-400 font-semibold" : ""}>50%</span>
-                  <span className={progress >= 75 ? "text-pink-400 font-semibold" : ""}>75%</span>
-                  <span className={progress >= 100 ? "text-green-400 font-semibold animate-bounce" : ""}>100%</span>
-                </div>
+                {/* Título de Conclusão */}
+                <h2 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-green-400 via-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient bg-[length:300%_300%] mb-6">
+                  CONCLUÍDO!
+                </h2>
 
-                {/* Status message */}
-                <div className="text-center pt-2">
-                  <p className="text-sm text-gray-400 animate-pulse">
-                    {progress < 30 && "🚀 Iniciando a jornada..."}
-                    {progress >= 30 && progress < 60 && "⚡ Desenvolvimento acelerado!"}
-                    {progress >= 60 && progress < 90 && "🔥 Quase lá! Últimos ajustes..."}
-                    {progress >= 90 && progress < 100 && "✨ Finalizando os detalhes..."}
-                    {progress >= 100 && "🎉 Projeto concluído!"}
+                {/* Subtítulo */}
+                <div className="space-y-4">
+                  <h3 className="text-2xl md:text-4xl font-bold text-white animate-fade-in animation-delay-500">
+                    🚀 Desenvolvimento Finalizado
+                  </h3>
+                  <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in animation-delay-700">
+                    Nossa plataforma está pronta e será lançada em breve. Prepare-se para uma experiência revolucionária em desenvolvimento de software!
                   </p>
                 </div>
               </div>
+
+              {/* Cards de Recursos Concluídos */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <div className="bg-gradient-to-br from-green-500/20 via-green-600/10 to-emerald-700/20 backdrop-blur-sm rounded-2xl p-8 border border-green-400/30 hover:border-green-300/50 transition-all duration-500 hover:scale-105 animate-slide-up animation-delay-1000">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-float shadow-lg shadow-green-500/30">
+                      <Rocket className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">Sistema Completo</h4>
+                    <p className="text-green-200 text-sm">Todas as funcionalidades implementadas e testadas</p>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-500/20 via-blue-600/10 to-cyan-700/20 backdrop-blur-sm rounded-2xl p-8 border border-blue-400/30 hover:border-blue-300/50 transition-all duration-500 hover:scale-105 animate-slide-up animation-delay-1200">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-float animation-delay-300 shadow-lg shadow-blue-500/30">
+                      <Zap className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">Performance Otimizada</h4>
+                    <p className="text-blue-200 text-sm">Velocidade e eficiência em cada interação</p>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-500/20 via-purple-600/10 to-violet-700/20 backdrop-blur-sm rounded-2xl p-8 border border-purple-400/30 hover:border-purple-300/50 transition-all duration-500 hover:scale-105 animate-slide-up animation-delay-1400">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-float animation-delay-600 shadow-lg shadow-purple-500/30">
+                      <Code className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">Código de Qualidade</h4>
+                    <p className="text-purple-200 text-sm">Arquitetura sólida e manutenível</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contagem Regressiva para Launch */}
+              <div className="bg-gradient-to-br from-slate-900/80 via-purple-900/40 to-slate-900/80 backdrop-blur-sm rounded-3xl p-10 border border-purple-400/20 shadow-2xl shadow-purple-500/20 animate-fade-in animation-delay-1600">
+                <div className="text-center space-y-6">
+                  <h3 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    Lançamento Iminente
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse animation-delay-500"></div>
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    <p className="text-xl text-gray-300">
+                      🌟 O futuro do desenvolvimento de software está chegando
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                      <span className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        Testes finalizados
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-200"></div>
+                        Deploy configurado
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse animation-delay-400"></div>
+                        Monitoramento ativo
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Mensagem de Expectativa */}
+                  <div className="mt-8 p-6 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl border border-white/10">
+                    <p className="text-lg text-white font-medium">
+                      ✨ Fique atento! Em breve anunciaremos oficialmente o lançamento
+                    </p>
+                    <p className="text-gray-300 mt-2">
+                      Uma nova era de desenvolvimento está prestes a começar
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ) : (
+            /* Barra de Progresso Original */
+            <div className="mt-12 max-w-lg mx-auto animate-slide-up animation-delay-2000">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center gap-3">
+                    <Code className="w-6 h-6 text-blue-400 animate-pulse" />
+                    Progresso do Desenvolvimento
+                    <Zap className="w-6 h-6 text-purple-400 animate-pulse animation-delay-300" />
+                  </h3>
+                  <p className="text-gray-300">Nossa jornada de inovação em tempo real</p>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Counter animado */}
+                  <div className="text-center">
+                    <div className="inline-flex items-baseline gap-1">
+                      <span className="text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%] tabular-nums">
+                        {progress}
+                      </span>
+                      <span className="text-3xl font-semibold text-purple-400 animate-pulse">%</span>
+                    </div>
+                    <p className="text-sm text-gray-400 mt-1 animate-fade-in">concluído</p>
+                  </div>
+
+                  {/* Barra de progresso ultra moderna */}
+                  <div className="relative group">
+                    {/* Fundo com efeito de profundidade */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-900/80 rounded-xl backdrop-blur-sm border border-white/10"></div>
+                    
+                    {/* Trilha da barra */}
+                    <div className="relative h-6 bg-gradient-to-r from-slate-800/90 via-slate-700/70 to-slate-800/90 rounded-xl overflow-hidden border border-white/20 shadow-inner">
+                      {/* Reflexo interno */}
+                      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                      
+                      {/* Barra de progresso principal */}
+                      <div 
+                        className="relative h-full rounded-xl transition-all duration-1000 ease-out shadow-lg overflow-hidden"
+                        style={{width: `${progress}%`}}
+                      >
+                        {/* Gradiente base roxo e azul */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-600 via-purple-600 to-slate-900 rounded-xl"></div>
+                        
+                        {/* Efeito de loading animado */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-500 via-purple-500 to-slate-900 rounded-xl animate-gradient bg-[length:300%_100%] opacity-90"></div>
+                        
+                        {/* Flow de carregamento */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 via-purple-400 to-transparent rounded-xl animate-gradient bg-[length:200%_100%] opacity-70"></div>
+                        
+                        {/* Reflexo superior */}
+                        <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-b from-white/30 to-transparent rounded-t-xl"></div>
+                        
+                        {/* Shimmer de loading */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 translate-x-[-100%] animate-[shimmer_2s_infinite] rounded-xl"></div>
+                        
+                        {/* Pulso de energia */}
+                        <div className="absolute inset-0 opacity-80">
+                          <div className="h-full w-full bg-gradient-to-r from-slate-800/60 via-blue-400/60 via-purple-400/60 to-slate-800/60 rounded-xl animate-pulse"></div>
+                        </div>
+                        
+                        {/* Efeito de movimento contínuo */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300/40 via-purple-300/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-2000 rounded-xl"></div>
+                      </div>
+                      
+                      {/* Partículas flutuantes múltiplas */}
+                      <div className="absolute top-1/2 transform -translate-y-1/2 animate-float" style={{left: `${Math.min(progress * 0.3, 95)}%`}}>
+                        <div className="w-1 h-1 bg-blue-300 rounded-full animate-ping shadow-lg shadow-blue-300/50"></div>
+                      </div>
+                      <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-300" style={{left: `${Math.min(progress * 0.6, 95)}%`}}>
+                        <div className="w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse shadow-lg shadow-purple-300/50"></div>
+                      </div>
+                      <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-600" style={{left: `${Math.min(progress * 0.9, 95)}%`}}>
+                        <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce shadow-lg shadow-slate-300/50"></div>
+                      </div>
+                      
+                      {/* Indicador de progresso flutuante */}
+                      <div className="absolute top-1/2 transform -translate-y-1/2 animate-float animation-delay-1000" style={{left: `${Math.min(progress, 95)}%`}}>
+                        <div className="relative">
+                          <div className="w-2.5 h-2.5 bg-white rounded-full shadow-2xl shadow-white/50 animate-pulse border-2 border-white/50"></div>
+                          <div className="absolute inset-0 w-2.5 h-2.5 bg-gradient-to-r from-cyan-200 to-pink-200 rounded-full animate-spin opacity-80"></div>
+                          <div className="absolute -inset-1 bg-white/20 rounded-full animate-ping"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Efeitos de luz ambiente */}
+                    <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl blur-xl opacity-70 animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-xl blur-md animate-glow"></div>
+                  </div>
+
+                  {/* Milestones */}
+                  <div className="flex justify-between text-xs text-gray-500 mt-2">
+                    <span className={progress >= 25 ? "text-blue-400 font-semibold" : ""}>25%</span>
+                    <span className={progress >= 50 ? "text-purple-400 font-semibold" : ""}>50%</span>
+                    <span className={progress >= 75 ? "text-pink-400 font-semibold" : ""}>75%</span>
+                    <span className={progress >= 100 ? "text-green-400 font-semibold animate-bounce" : ""}>100%</span>
+                  </div>
+
+                  {/* Status message */}
+                  <div className="text-center pt-2">
+                    <p className="text-sm text-gray-400 animate-pulse">
+                      {progress < 30 && "🚀 Iniciando a jornada..."}
+                      {progress >= 30 && progress < 60 && "⚡ Desenvolvimento acelerado!"}
+                      {progress >= 60 && progress < 90 && "🔥 Quase lá! Últimos ajustes..."}
+                      {progress >= 90 && progress < 100 && "✨ Finalizando os detalhes..."}
+                      {progress >= 100 && "🎉 Projeto concluído!"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
