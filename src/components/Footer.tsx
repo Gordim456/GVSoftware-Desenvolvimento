@@ -98,13 +98,6 @@ const Footer = () => {
                     © 2025 <span className="text-cyan-400 font-semibold">GV Software</span> - Todos os direitos reservados
                   </p>
                 </div>
-                
-                <div className="flex items-center gap-2 text-gray-400 text-xs">
-                  <span>Desenvolvido com</span>
-                  <Heart className="w-3 h-3 text-pink-400 animate-pulse" />
-                  <span>e muito</span>
-                  <Code className="w-3 h-3 text-cyan-400" />
-                </div>
               </div>
             </div>
             
