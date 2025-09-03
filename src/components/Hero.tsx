@@ -88,15 +88,41 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Logo/Brand */}
+          {/* Logo/Brand com Nova Logo 3D */}
           <div className="mb-8 flex justify-center items-center space-x-4 animate-fade-in">
             <div 
-              className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl animate-float animate-glow cursor-pointer hover:scale-105 transition-transform duration-200" 
+              className="relative p-2 cursor-pointer hover:scale-110 transition-all duration-500 group perspective-1000" 
               onDoubleClick={handleLogoDoubleClick}
               title="Duplo clique para acesso especial"
             >
-              <Code className="w-12 h-12 text-white" />
+              {/* Container 3D para a logo */}
+              <div className="relative w-24 h-24 md:w-32 md:h-32 transform-gpu transition-all duration-700 hover:rotate-y-12 hover:rotate-x-6 group-hover:scale-105 animate-float-3d">
+                {/* Efeito de brilho ao redor */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-purple-500/30 rounded-2xl blur-xl animate-pulse group-hover:blur-2xl transition-all duration-500"></div>
+                
+                {/* Logo principal */}
+                <img 
+                  src="/lovable-uploads/a52156c7-3158-424c-87bc-68b955a07253.png" 
+                  alt="GV Software Logo 3D" 
+                  className="relative w-full h-full object-contain logo-glow drop-shadow-2xl"
+                />
+                
+                {/* Efeito de reflexo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Partículas ao redor do logo */}
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
+                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping animation-delay-500 opacity-75"></div>
+                <div className="absolute top-1/2 -right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping animation-delay-1000 opacity-75"></div>
+              </div>
+              
+              {/* Efeito de ondas no hover */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 rounded-2xl border-2 border-cyan-400/50 animate-ping animation-delay-0"></div>
+                <div className="absolute inset-0 rounded-2xl border border-blue-400/30 animate-ping animation-delay-700"></div>
+              </div>
             </div>
+            
             <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
               GV Software
             </h1>

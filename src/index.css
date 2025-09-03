@@ -224,4 +224,48 @@ All colors MUST be HSL.
       transform: translateX(300%) skewX(-12deg);
     }
   }
+
+  /* Efeitos 3D para a logo */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-gpu {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+
+  .rotate-x-6 {
+    transform: rotateX(6deg);
+  }
+
+  /* Efeito de flutuação 3D para a logo */
+  .animate-float-3d {
+    animation: float3d 4s ease-in-out infinite;
+  }
+
+  @keyframes float3d {
+    0%, 100% {
+      transform: translateY(0px) rotateY(0deg);
+    }
+    25% {
+      transform: translateY(-5px) rotateY(5deg);
+    }
+    50% {
+      transform: translateY(-10px) rotateY(0deg);
+    }
+    75% {
+      transform: translateY(-5px) rotateY(-5deg);
+    }
+  }
+
+  /* Efeito de brilho especial para logo */
+  .logo-glow {
+    filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.6)) 
+            drop-shadow(0 0 40px rgba(59, 130, 246, 0.4));
+  }
 }

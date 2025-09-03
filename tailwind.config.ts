@@ -131,6 +131,13 @@ export default {
 				'1000': '1000ms',
 				'2000': '2000ms',
 				'3000': '3000ms'
+			},
+			perspective: {
+				'1000': '1000px'
+			},
+			transform: {
+				'rotate-y-12': 'rotateY(12deg)',
+				'rotate-x-6': 'rotateX(6deg)'
 			}
 		}
 	},
