@@ -10,6 +10,7 @@ import { useProgress } from "@/contexts/ProgressContext";
 import { useNavigate } from "react-router-dom";
 
 
+// GV Software Hero Component
 const Hero = () => {
   const { toast } = useToast();
   const { progress } = useProgress();
